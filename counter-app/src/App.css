@@ -1,0 +1,31 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+body{
+  background-image: url(./assets/2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+button{
+ gap: 2rem;
+  padding: 10px;
+  margin: 20px;
+ border-radius: 10px;
+ background-color: orange;
+  color:black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+button:hover{
+  cursor: pointer;
+  box-shadow: 0 0 25px rgb(252, 84, 23);
+}
+
