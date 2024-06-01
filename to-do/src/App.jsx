@@ -1,47 +1,56 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import React from 'react'
 import './App.css'
 
 function App() {
-//   const [count, setCount] = useState("")
-
+	const [tasks, setTasks] = useState([]);
+	const [task, setTask] = useState('');
   
-  document.getElementById('todoAdd').addEventListener('click', addTodo);
-
-function addTodo() {
-	let input = document.getElementById('todoInput');
-	let list = document.getElementById('todoList');
-	let item = document.createElement('li');
-	item.classList.add('todoItem');
-	item.innerHTML = `<span class="todoText">${input.value}</span>  `;
-	let deleteButton = document.createElement('span');
-	deleteButton.classList.add('todoDelete');
-	deleteButton.innerHTML = 'X'; 
-	item.appendChild(deleteButton) ;
-	list.appendChild(item);
-	input.value = '';
-	deleteButton.addEventListener('click', removeTodo);
-}
+	const handleInputChange = (e) => {
+	  setTask(e.target.value);
+	};
   
-function removeTodo(e) {
-	let item = e.target.parentElement;
-	let list = document.getElementById('todoList');
-	list.removeChild(item);
-}
+	const handleAddTask = () => {
+	  if (task.trim()) {
+		setTasks([...tasks, task]);
+		setTask('');
+	  }
+	};
+  
+	const handleRemoveTask = (index) => {
+	  const newTasks = tasks.filter((_, i) => i !== index);
+	  setTasks(newTasks);
+	};
 
 
   return (
     <>
-      <div className="container">
-		<h1>To-Do List</h1>
-		<input type="text" id="todoInput" placeholder="Add a new task..."/>
-		<button id="todoAdd">Add</button>
-		<ul id="todoList">
-			{/* <!-- Tasks will be added here --> */}
-		</ul>
-	</div>
+      <div className="App">
+      <header className="App-header">
+        <h1>To-Do List</h1>
+        <div>
+          <input type="text" value={task} onChange={handleInputChange}
+            placeholder="Enter a task" />
+          <button onClick={handleAddTask}>Add Task</button>
+        </div>
+        <ul id='todoInput'>
+          {tasks.map((task, index) => (
+            <li key={index}>
+              {task} <button onClick={() => handleRemoveTask(index)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      </header>
+    </div>
     </>
   )
 }
 
 export default App
+
+
+
+
+
+  
+
