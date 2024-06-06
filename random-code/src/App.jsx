@@ -32,7 +32,7 @@ const quotes = [
     <>
       
       <h1>Random Code Generater</h1>
-      <h3>{quote}</h3>
+      <h3>{quote}</h3> 
       <button onClick={generateQuote}>Generate Quote</button>
       
     </>
