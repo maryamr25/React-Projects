@@ -5,7 +5,7 @@ function LoggedOut({ onLogin }) {
   return (
     <div>
       <h1>You are logged out!</h1>
-      <button onClick={onLogin}>Login</button>
+      <button onClick={onLogin}>LogOut</button>
     </div>
   );
 }
