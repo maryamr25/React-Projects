@@ -26,7 +26,8 @@ function Home() {
        .then((userCredential) =>{
             const user = userCredential.user;
             console.log(user);
-            navigate('/private'); 
+            navigate('/private');
+           
         })
        .catch((error) => {
             const errorCode = error.code;
@@ -42,7 +43,7 @@ function Home() {
        .then((userCredential) =>{
             const user = userCredential.user;
             console.log(user);
-            navigate('/'); // navigate to the homepage after sign in
+            navigate('/private'); 
         })
        .catch((error) => {
             const errorCode = error.code;
